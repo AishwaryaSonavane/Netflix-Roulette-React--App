@@ -1,0 +1,9 @@
+.movies {
+    color: #ffffff;
+
+}
+.movie-genre {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+}
