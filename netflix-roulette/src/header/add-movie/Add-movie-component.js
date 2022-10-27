@@ -3,7 +3,7 @@ import './Add-movie-component.css';
 
 function AddMovie() {
     return (
-        <button className='add-movie'>+ADD MOVIE</button>
+        <button className='button--add'>+ADD MOVIE</button>
     )
 }
 

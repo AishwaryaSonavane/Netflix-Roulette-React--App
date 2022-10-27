@@ -5,22 +5,21 @@ class MovieGenre extends React.Component {
     constructor() {
         super();
         this.state = {
-            selectedCategory: ''
-        }
+            selectedCategory: '',
+            genreList: ['All', 'Documentary', 'Comedy','Horror', 'Crime'],
+        } 
     }
 
     onSelectGenre = (category) => {
-        console.log("Category",category)
         this.setState((prevState) => ({selectedCategory: category}))
     } 
-
+    
     render() {
-        const genreList = ['All', 'Documentary', 'Comedy','Horror', 'Crime']; 
         return (
            <div className="movies">
-                <div className="movie-genre">
+                <div className="movies__genre">
                         { 
-                        genreList.map((category,index) => {
+                       this.state.genreList.map((category,index) => {
                                 return (
                                     <div onClick={() => this.onSelectGenre(category)} key={index}>
                                     { category }

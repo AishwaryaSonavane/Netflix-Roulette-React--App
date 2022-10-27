@@ -3,9 +3,9 @@ import './Search-component.css';
 
 function Search() {
     return (
-       <div className='search-section'>
-            <input className='movie-input' placeholder='What do you want to watch?'></input>
-            <button className='search-button'>SEARCH</button>
+       <div className='search'>
+            <input className='input' placeholder='What do you want to watch?'></input>
+            <button className='button'>SEARCH</button>
        </div>
     )
 }

@@ -9,7 +9,7 @@ function Header() {
             <div className="header">
             </div>
             <AddMovie />
-            <h1 className="find-movie-title">FIND YOUR MOVIE</h1>
+            <h1 className="header__title">FIND YOUR MOVIE</h1>
             <Search />
         </div>
     )

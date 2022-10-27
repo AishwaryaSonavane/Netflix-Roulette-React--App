@@ -5,7 +5,7 @@
   height: 396px;  
   filter: blur(3.07px);
 }
-.find-movie-title {
+.header__title {
     color: white;
     position: absolute;
     top: 18%;
