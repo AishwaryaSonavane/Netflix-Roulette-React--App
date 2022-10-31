@@ -1,13 +1,16 @@
 import './App.css';
+import ErrorBoundary from './error/error-boundary';
 import Header from './header/Header-component';
 import Movies from './movies/Movies';
 
 function App() {
   return (
-    <div>
+    <>
       <Header />
-      <Movies />
-    </div>
+      <ErrorBoundary>
+        <Movies />
+      </ErrorBoundary>
+    </>
   );
 }
 

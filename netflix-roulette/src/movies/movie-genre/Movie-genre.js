@@ -1,17 +1,26 @@
 import React from "react";
 import './Movie-genre.css';
+import movies from '../../mock-data/mock-movie-data.json';
+import MovieCard from "./movie-card/Movie-card";
+import {GENRES} from '../../constants';
 
 class MovieGenre extends React.Component {
     constructor() {
         super();
         this.state = {
             selectedCategory: '',
-            genreList: ['All', 'Documentary', 'Comedy','Horror', 'Crime'],
+            genreList: GENRES,
+            movies: []
         } 
     }
 
     onSelectGenre = (category) => {
-        this.setState((prevState) => ({selectedCategory: category}))
+        this.setState(({selectedCategory: category}));
+      
+        const selectedCategoryMovies = movies.categories.filter(movie => {
+            return movie.category === category
+        });
+        this.setState(({movies: selectedCategoryMovies}));
     } 
     
     render() {
@@ -29,7 +38,14 @@ class MovieGenre extends React.Component {
                             ) 
                         }
                 </div>
-                <h3>{this.state.selectedCategory}</h3>
+                {
+                    this.state.movies.map((movie) => {
+                        return (
+                            <MovieCard key={movie.id} movie={movie}/>
+                        )
+                    }) 
+                } 
+                
            </div> 
             
         )

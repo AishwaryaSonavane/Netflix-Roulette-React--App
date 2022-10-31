@@ -1,0 +1,26 @@
+.movie {
+    margin: 15px;
+    padding: 10px;
+    width: 198px;
+}
+.image {
+    width: 100%;
+}
+.detail {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+.movie__title {
+    padding: 6px 0;
+}
+.movie__year {
+    border: 1px solid #979797;
+    border-radius: 4px;
+    padding: 5px 10px;
+}
+.movie__category {
+    color: #FFFFFF;
+    opacity: 0.5;
+    font-size: 14px;
+}

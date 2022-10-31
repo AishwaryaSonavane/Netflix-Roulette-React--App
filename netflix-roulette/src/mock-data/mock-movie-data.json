@@ -1,0 +1,37 @@
+{
+    "categories": [
+        {
+            "id": 1,
+            "category": "Documentary",
+            "title": "Our Planet",
+            "year": "2021",
+            "image_url": "our-planet.jpeg"
+
+        },
+        {
+            "id": 2,
+            "category": "Comedy",
+            "title": "The Hangover",
+            "year": "2009",
+            "image_url": "the_hangover.jpeg"
+
+        },
+        {
+            "id": 3,
+            "category": "Horror",
+            "title": "The Conjuring",
+            "year": "2013",
+            "image_url": "the_conjuring.jpg"
+
+        },
+        {
+            "id": 4,
+            "category": "Crime",
+            "title": "Unsolved mystries",
+            "year": "2022",
+            "image_url": "unsolved_mystries.jpeg"
+
+        }
+
+    ]
+}
