@@ -10,7 +10,11 @@ function MovieDetails() {
         <div className="movie-details">
                     <img className="movie-image" src={require(`../../assets/${image_url}`)}/>
                     <div className="details">
-                    <h3>{title}</h3>
+                    <div className="title-rating">
+                        <span className="title">{title}</span>
+                        <div className="rating"><span>{rating}</span></div>
+                    </div>    
+                   
                     <div className="year-duration">
                         <span>{year}</span>
                         <span className="duration">{duration} min</span>

@@ -15,7 +15,6 @@ function MovieCard(props) {
     }
 
     const selectMovie = (movieDetails) => {
-        console.log(movieDetails)
         setValue(movieDetails);
     }
         const {image_url, title, year, category} = props.movie;
