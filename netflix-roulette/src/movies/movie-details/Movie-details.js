@@ -8,7 +8,7 @@ function MovieDetails() {
     const {image_url, title, year, duration, description, rating} = value;
     return (
         <div className="movie-details">
-                    <img className="movie-image" src={require(`../../assets/${image_url}`)}/>
+                    <img className="movie-image" alt={title} src={require(`../../assets/${image_url}`)}/>
                     <div className="details">
                     <div className="title-rating">
                         <span className="title">{title}</span>
