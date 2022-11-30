@@ -1,7 +1,8 @@
 .movie {
-    margin: 15px;
+    margin: 2%;
     padding: 10px;
-    width: 198px;
+    width: 19%;
+    font-size: 14px;
 }
 .image {
     width: 100%;
@@ -13,11 +14,13 @@
 }
 .movie__title {
     padding: 6px 0;
+    margin-right: 30px
 }
 .movie__year {
     border: 1px solid #979797;
     border-radius: 4px;
     padding: 5px 10px;
+    height: min-content;
 }
 .movie__category {
     color: #FFFFFF;

@@ -2,8 +2,20 @@
     color: #ffffff;
 
 }
-.movies__genre {
+.genre_sortBy__section {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+.genre {
     display: flex;
     justify-content: space-between;
     width: 40%;
+    color: #ffffff;
+    font-size: 14px;
+}
+.movie__section {
+    display: flex;
+    color: #ffffff;
+    flex-wrap: wrap;
 }
