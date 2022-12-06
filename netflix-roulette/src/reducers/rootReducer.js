@@ -4,7 +4,8 @@ const initial_state = {
     selectedGenre: ''
 }
 
-const rootReducer = (state = initial_state, action) => {
+export const rootReducer = (state = initial_state, action) => {
+    console.log(action.payload)
     switch(action.type) {
         case 'GET_MOVIES': 
             return {
@@ -26,4 +27,6 @@ const rootReducer = (state = initial_state, action) => {
     }
 }
 
-export default rootReducer;
+export const getMoviesData = (state, key) => state.movies;
+export const getSelectedSortOption = (state) => state.sortBy;
+export const getSelectedGenre = (state) => state.selectedGenre;

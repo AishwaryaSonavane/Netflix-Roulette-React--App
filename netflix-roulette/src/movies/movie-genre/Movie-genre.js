@@ -2,19 +2,22 @@ import React, { useEffect } from "react";
 import './Movie-genre.css';
 import MovieCard from "./movie-card/Movie-card";
 import {GENRES} from '../../constants';
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import { getMovies, selectGenre } from "../../actions/moviesActions";
 import { getMoviesFromApi } from "../../api/api";
 import MovieSort from "../movie-sort/Movie-sort";
+import { getMoviesData, getSelectedGenre, getSelectedSortOption } from "../../reducers/rootReducer";
 
 function MovieGenre(props) {
+
+    const movies = useSelector(getMoviesData);
+    const sortBy = useSelector(getSelectedSortOption);
+    const selectedGenre = useSelector(getSelectedGenre);
 
 const onSelectGenre = (category) => {
     getMoviesFromApi(category).then((movies) => {
         props.getMovies(movies);
     });
-
-    props.selectGenre(category);
 
 }
 
@@ -25,11 +28,10 @@ useEffect(() => {
 },[])
 
 useEffect(() => {
-    const { selectedGenre, sortBy } = props;
     getMoviesFromApi(selectedGenre,sortBy).then((movies) => {
         props.getMovies(movies); 
     });
-},[props.sortBy])
+},[sortBy])
 
     return (
         <>
@@ -51,7 +53,7 @@ useEffect(() => {
             
             <div className="movie__section">
                 {
-                props.movies &&  props.movies.map((movie) => {
+                movies &&  movies.map((movie) => {
                         return (
                             <>
                                 <MovieCard key={movie.id} movie={movie}/>
@@ -66,18 +68,10 @@ useEffect(() => {
         )
     }
 
-    function mapStateToProps(state) {
-        return {
-            movies: state.movies,
-            sortBy: state.sortBy,
-            selectedGenre: state.selectedGenre
-        };
-    }
-
     function mapDispatchToProps(dispatch) {
         return {
             getMovies: (movies) => dispatch(getMovies(movies)),
             selectGenre: (genre) => dispatch(selectGenre(genre))
         };
     }
-export default connect(mapStateToProps,mapDispatchToProps)(MovieGenre);
+export default connect(null,mapDispatchToProps)(MovieGenre);

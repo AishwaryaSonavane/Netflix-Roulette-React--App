@@ -1,6 +1,7 @@
-import React from "react";
-import { connect } from "react-redux";
+import React, { useEffect } from "react";
+import { connect, useSelector } from "react-redux";
 import { sortMovies } from "../../actions/moviesActions";
+import { getSortByOptions } from "../../reducers/rootReducer";
 import './Movie-sort.css'
 
 function MovieSort(props) {
@@ -25,4 +26,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect('',mapDispatchToProps)(MovieSort);
+export default connect(null,mapDispatchToProps)(MovieSort);
