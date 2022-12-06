@@ -1,0 +1,13 @@
+.sort {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 10px;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+.options {
+    margin-left: 15px;
+    background-color: transparent;
+    color: white;
+    border: none;
+}   

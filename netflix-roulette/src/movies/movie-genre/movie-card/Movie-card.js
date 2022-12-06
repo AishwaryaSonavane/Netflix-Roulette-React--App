@@ -17,7 +17,7 @@ function MovieCard(props) {
     const selectMovie = (movieDetails) => {
         setValue(movieDetails);
     }
-        const {image_url, title, year, category} = props.movie;
+        const {poster_path, title, release_date, genres} = props.movie;
         return (
             <div className='movie'>
                 {showEditDelModel && (
@@ -28,13 +28,13 @@ function MovieCard(props) {
                </div>
                 )}
                 <button className='close' onClick={showAddDeleteOptions}>X</button>
-                <img className='image' src={require(`../../../assets/${image_url}`)} alt={title} onClick={() => selectMovie(props.movie)}/>
+                <img className='image' src={poster_path} alt={title} onClick={() => selectMovie(props.movie)}/>
                 <div className='detail'>
                     <span className='movie__title'>{title}</span>
-                    <span className='movie__year'>{year}</span>
+                    {release_date && <span className='movie__year'>{release_date.split('-')[0]}</span>}
                 </div>
                 <div className='movie__category'>
-                    <span>{category}</span>
+                    {genres && genres.map((genre,i) => <span key={i}>{genre} &nbsp;</span> )}
                 </div>
             </div>
         )    
