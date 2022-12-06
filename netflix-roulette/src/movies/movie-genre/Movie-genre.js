@@ -22,6 +22,7 @@ const onSelectGenre = (category) => {
 }
 
 useEffect(() => {
+    console.log(movies)
     getMoviesFromApi().then((movies) => {
         props.getMovies(movies); 
     });

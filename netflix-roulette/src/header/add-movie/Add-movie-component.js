@@ -1,36 +1,31 @@
 import React from 'react';
+import { connect, useSelector } from 'react-redux';
+import { openModal } from '../../actions/moviesActions';
 import AddEditMovieModel from '../../common/add-edit-movie-model/Add-Edit-Movie-Model';
+import { getModalState } from '../../reducers/rootReducer';
 import './Add-movie-component.css';
 
-class AddMovie extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-          showModel: false
-        };
-    }
-    addMovie = () => {
-        this.setState({
-            showModel: !this.state.showModel
-        });
+function AddMovie(props) {
+    const isOpen = useSelector(getModalState);
+
+    const addMovie = () => {
+        console.log("open",isOpen)
+        props.openModal();
     }
 
-    setShowModel = (data) => {
-        this.setState({
-            showModel: data
-        })
-    }
-
-    render() {
-        return (
-            <>
-                <button className='button--add' onClick={this.addMovie}>+ADD MOVIE</button>
-                { this.state.showModel && <AddEditMovieModel showAddModel={this.setShowModel}/> }
-            </>
-           
-        )
-    }
+    return (
+        <>
+            <button className='button--add' onClick={addMovie}>+ADD MOVIE</button>
+            { isOpen && <AddEditMovieModel isOpen/> }
+        </>
+        
+    )
   
 }
 
-export default AddMovie;
+function mapDispatchToProps(dispatch) {
+    return {
+        openModal: () => dispatch(openModal())
+    };
+}
+export default connect(null,mapDispatchToProps)(AddMovie);
