@@ -1,9 +1,14 @@
 import React, { useContext, useState } from 'react';
+import { connect, useSelector } from 'react-redux';
+import { openModal } from '../../../actions/moviesActions';
 import { MovieDetailContext } from '../../../App';
+import DeleteMovieModal from '../../../common/add-edit-movie-model/delete-movie-modal/Delete-Movie-Modal';
+import { getModalState } from '../../../reducers/rootReducer';
 import './Movie-card.css';
 
 function MovieCard(props) {
     const [showEditDelModel, setEditDelModelState] = useState(false);
+    const [showDeleteModal, setDelelteModelState] = useState(false);
     const {setValue} = useContext(MovieDetailContext);
 
     const showAddDeleteOptions = () => {
@@ -17,14 +22,20 @@ function MovieCard(props) {
     const selectMovie = (movieDetails) => {
         setValue(movieDetails);
     }
+
+    const setcloseDeleteModal = (data) => {
+        setDelelteModelState(data);
+    }
         const {poster_path, title, release_date, genres} = props.movie;
         return (
             <div className='movie'>
+
+                {showDeleteModal && <DeleteMovieModal showDeleteModal closeDeleteModal={setcloseDeleteModal}/> }
                 {showEditDelModel && (
                      <div className='edit-delete-options'>
                      <button className='edit-delete-close' onClick={closeOptionsModel}>X</button>
                      <div className='edit'>Edit</div>
-                     <div className='delete'>Delete</div>
+                     <div className='delete' onClick={() => setDelelteModelState(true)}>Delete</div>
                </div>
                 )}
                 <button className='close' onClick={showAddDeleteOptions}>X</button>
@@ -39,5 +50,6 @@ function MovieCard(props) {
             </div>
         )    
     }
+
 
 export default MovieCard;

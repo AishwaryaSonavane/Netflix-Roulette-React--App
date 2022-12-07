@@ -9,7 +9,6 @@ function AddMovie(props) {
     const isOpen = useSelector(getModalState);
 
     const addMovie = () => {
-        console.log("open",isOpen)
         props.openModal();
     }
 
