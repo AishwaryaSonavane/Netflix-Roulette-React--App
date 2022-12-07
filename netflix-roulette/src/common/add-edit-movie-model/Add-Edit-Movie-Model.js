@@ -1,7 +1,7 @@
 import React from "react";
-import { ErrorMessage, Field, Formik, useFormik } from "formik";
 import { connect } from "react-redux";
 import { closeModal } from "../../actions/moviesActions";
+import { ErrorMessage, Field, Formik, useFormik } from "formik";
 import * as Yup from 'yup';
 import './Add-Edit-Movie-Model.css';
 
@@ -10,10 +10,6 @@ function AddEditMovieModel(props) {
     const closeModel = () => {
         props.closeModal();
     }
-
-    const formik = useFormik({
-
-    });
 
     return (
     <Formik         
@@ -41,7 +37,6 @@ function AddEditMovieModel(props) {
               overview: Yup.string().required('Required')
             })}
           onSubmit={values => {
-              console.log("values",values)
               fetch('http://localhost:4000/movies',{
                       method: 'POST',
                       headers: {
