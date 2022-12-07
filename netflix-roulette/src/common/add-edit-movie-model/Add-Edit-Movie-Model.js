@@ -1,8 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import { closeModal } from "../../actions/moviesActions";
-import { ErrorMessage, Field, Formik, useFormik } from "formik";
+import { ErrorMessage, Field, Formik } from "formik";
 import * as Yup from 'yup';
+import { addEditMovieFromApi } from "../../api/api";
+import { closeModal } from "../../actions/moviesActions";
 import './Add-Edit-Movie-Model.css';
 
 function AddEditMovieModel(props) {
@@ -21,12 +22,11 @@ function AddEditMovieModel(props) {
             vote_average: 0,
             runtime: 0,
             overview: ''
-  
           }}
           validationSchema={Yup.object({
               title: Yup.string().required('Required'),
               poster_path: Yup.string().required('Required'),
-              genres: Yup.array().required('Required'),
+              genres: Yup.array().nullable(),
               release_date: Yup.string().required('Required'),
               vote_average: Yup.number()
               .typeError('Rating must be a number')
@@ -36,15 +36,13 @@ function AddEditMovieModel(props) {
               .required('Required'),
               overview: Yup.string().required('Required')
             })}
-          onSubmit={values => {
-              fetch('http://localhost:4000/movies',{
-                      method: 'POST',
-                      headers: {
-                      'Content-Type': 'application/json',
-                      },
-                      body: JSON.stringify(values)
-                  })
-                  .then(response => console.log("RESSS",response));
+          onSubmit={formValues => {
+            const formData = {...formValues, genres: [formValues.genres]}
+            addEditMovieFromApi(formData).then(response => {
+                if (response.statusText === 'Created') {
+                    props.closeModal();
+                }
+                })
             }}>
             {formik => (
                 <>
