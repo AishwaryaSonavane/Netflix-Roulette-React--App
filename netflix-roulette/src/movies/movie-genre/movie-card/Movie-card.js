@@ -26,11 +26,11 @@ function MovieCard(props) {
     const setcloseDeleteModal = (data) => {
         setDelelteModelState(data);
     }
-        const {poster_path, title, release_date, genres} = props.movie;
+        const {poster_path, title, release_date, genres, id} = props.movie;
         return (
             <div className='movie'>
 
-                {showDeleteModal && <DeleteMovieModal showDeleteModal closeDeleteModal={setcloseDeleteModal}/> }
+                {showDeleteModal && <DeleteMovieModal movieId={id} showDeleteModal closeDeleteModal={setcloseDeleteModal}/> }
                 {showEditDelModel && (
                      <div className='edit-delete-options'>
                      <button className='edit-delete-close' onClick={closeOptionsModel}>X</button>
