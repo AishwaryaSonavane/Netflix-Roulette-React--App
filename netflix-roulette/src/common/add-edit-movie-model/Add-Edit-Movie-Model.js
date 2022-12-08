@@ -1,12 +1,15 @@
 import React from "react";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import { ErrorMessage, Field, Formik } from "formik";
 import * as Yup from 'yup';
 import { addEditMovieFromApi } from "../../api/api";
 import { closeModal } from "../../actions/moviesActions";
+import { getEditMovieDetails } from "../../reducers/rootReducer";
 import './Add-Edit-Movie-Model.css';
 
 function AddEditMovieModel(props) {
+
+    const editMovieDetails = useSelector(getEditMovieDetails);
 
     const closeModel = () => {
         props.closeModal();
@@ -15,13 +18,13 @@ function AddEditMovieModel(props) {
     return (
     <Formik         
         initialValues={{
-            title: '',
-            poster_path: '',
-            genres: [],
-            release_date: '',
-            vote_average: 0,
-            runtime: 0,
-            overview: ''
+            title: editMovieDetails.title ?? '',
+            poster_path: editMovieDetails.poster_path ?? '',
+            genres: editMovieDetails && editMovieDetails.genres ? editMovieDetails.genres.toString() : [],
+            release_date: editMovieDetails.release_date ?? '',
+            vote_average: editMovieDetails.vote_average ?? 0,
+            runtime: editMovieDetails.runtime ?? 0,
+            overview: editMovieDetails.overview ?? ''
           }}
           validationSchema={Yup.object({
               title: Yup.string().required('Required'),
@@ -36,20 +39,21 @@ function AddEditMovieModel(props) {
               .required('Required'),
               overview: Yup.string().required('Required')
             })}
-          onSubmit={formValues => {
-            const formData = {...formValues, genres: [formValues.genres]}
-            addEditMovieFromApi(formData).then(response => {
-                if (response.statusText === 'Created') {
-                    props.closeModal();
-                }
+            onSubmit={formValues => {
+                const formData = {...formValues, genres: formValues.genres.split(',')}
+                addEditMovieFromApi(formData).then(response => {
+                    if (response.statusText === 'Created') {
+                        props.closeModal();
+                    }
                 })
-            }}>
+            }}
+            >
             {formik => (
                 <>
                     { props.isOpen && (<div className="add-edit-model">
                     <button className="close"  onClick={closeModel}>X</button>
-                    <h2>ADD MOVIE</h2>     
-                    <form onSubmit={formik.handleSubmit}>
+                    <h2>{editMovieDetails ? 'EDIT MOVIE': 'ADD MOVIE'}</h2>     
+                    <form onSubmit={formik.handleSubmit} onReset={formik.handleReset} >
                         <div className="movie-detail--form">
                             <div className="detail__column-one">
 

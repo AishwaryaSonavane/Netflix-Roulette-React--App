@@ -22,3 +22,8 @@ export const closeModal = () => ({
     type: 'CLOSE_MODAL',
     payload: false
 });
+
+export const editMovie = (movie) => ({
+    type: 'EDIT_MOVIE',
+    payload: movie
+})

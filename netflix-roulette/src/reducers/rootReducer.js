@@ -2,7 +2,8 @@ const initial_state = {
     movies: [],
     sortBy: '',
     selectedGenre: '',
-    isModalOpen: false
+    isModalOpen: false,
+    editMovieDetails: {}
 }
 
 export const rootReducer = (state = initial_state, action) => {
@@ -31,7 +32,12 @@ export const rootReducer = (state = initial_state, action) => {
             return {
                 ...state,
                 isModalOpen: action.payload
-            }      
+            }  
+        case 'EDIT_MOVIE':
+            return {
+                ...state,
+                editMovieDetails: action.payload
+            }          
         default: 
             return state;  
     }
@@ -41,3 +47,4 @@ export const getMoviesData = (state, key) => state.movies;
 export const getSelectedSortOption = (state) => state.sortBy;
 export const getSelectedGenre = (state) => state.selectedGenre;
 export const getModalState = (state) => state.isModalOpen;
+export const getEditMovieDetails = (state) => state.editMovieDetails;
