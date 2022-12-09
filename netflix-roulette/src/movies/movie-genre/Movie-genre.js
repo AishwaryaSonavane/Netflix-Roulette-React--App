@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
-import './Movie-genre.css';
-import MovieCard from "./movie-card/Movie-card";
-import {GENRES} from '../../constants';
 import { connect, useSelector } from "react-redux";
 import { getMovies, selectGenre } from "../../actions/moviesActions";
 import { getMoviesFromApi } from "../../api/api";
-import MovieSort from "../movie-sort/Movie-sort";
 import { getMoviesData, getSelectedGenre, getSelectedSortOption } from "../../reducers/rootReducer";
+import { GENRES } from '../../constants';
+import MovieCard from "./movie-card/Movie-card";
+import MovieSort from "../movie-sort/Movie-sort";
+import './Movie-genre.css';
+
 
 function MovieGenre(props) {
 

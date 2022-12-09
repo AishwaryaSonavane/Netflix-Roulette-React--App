@@ -3,6 +3,7 @@
     padding: 10px;
     width: 19%;
     font-size: 14px;
+    position: relative;
 }
 .image {
     width: 100%;
@@ -36,7 +37,7 @@
     margin: 5px 0px;
     cursor: pointer;
 }
-.edit-delete-options {
+.edit-delete-options-modal {
     z-index: 1;
     background: rgba(35, 35, 35, 0.918051);
     width: 100px;
@@ -44,8 +45,8 @@
     color: #FFFFFF;
     font-size: 14px;
     position: absolute;
-    left: 15%;
-    bottom: 21%;
+    left: 32%;
+    top: 9%;
 }
 .edit {
     margin-top: 18px;
@@ -58,4 +59,14 @@
 }
 .edit:hover,.delete:hover {
     background: #F65261;
+}
+.edit-delete-options {
+    position: relative;
+    top: 7%;
+    left: 86%;
+    border: 1px solid;
+    border-radius: 9px;
+    padding: 1px 7px;
+    background: none;
+    color: #ffffff;
 }
