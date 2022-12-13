@@ -1,12 +1,14 @@
-import React, { useEffect } from "react";
-import { connect, useSelector } from "react-redux";
+import React from "react";
+import { connect } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { sortMovies } from "../../actions/moviesActions";
-import { getSortByOptions } from "../../reducers/rootReducer";
 import './Movie-sort.css'
 
 function MovieSort(props) {
+    const navigate = useNavigate();
     const sortMovies = (option) => {
         props.sortMoviesBy(option);
+        navigate(`?sort=${option}`);
     }
 
     return(

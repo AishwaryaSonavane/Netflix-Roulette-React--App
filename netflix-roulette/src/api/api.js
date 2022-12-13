@@ -1,9 +1,9 @@
-export function getMoviesFromApi(genre='', sortBy='') {
-   return fetch(`http://localhost:4000/movies?sortBy=${sortBy}&sortOrder=desc&search=${genre}&searchBy=genres`)
+export const getMoviesFromApi = (genre='', sortBy='', searchBy='') => {
+   return fetch(`http://localhost:4000/movies?sortBy=${sortBy}&sortOrder=desc&search=${genre}&searchBy=${searchBy}`)
         .then(response => response.json()).then(res => res.data)
 }
 
-export function addEditMovieFromApi(movieData) {
+export const addEditMovieFromApi = (movieData) => {
     return fetch('http://localhost:4000/movies',{
                       method: 'POST',
                       headers: {
@@ -14,7 +14,7 @@ export function addEditMovieFromApi(movieData) {
                   .then(response => response)
 }
 
-export function deleteMovieFromApi(movieId) {
+export const  deleteMovieFromApi = (movieId) => {
       return fetch(`http://localhost:4000/movies/${movieId}`,{
                       method: 'DELETE',
                       headers: {
