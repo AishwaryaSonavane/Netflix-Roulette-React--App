@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { connect } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import DeleteMovieModal from '../../../common/add-edit-movie-model/delete-movie-modal/Delete-Movie-Modal';
 import { editMovie, openModal } from '../../../actions/moviesActions';
 import { MovieDetailContext } from '../../../App';
@@ -9,6 +10,7 @@ function MovieCard(props) {
     const [showEditDelModel, setEditDelModelState] = useState(false);
     const [showDeleteModal, setDelelteModalState] = useState(false);
     const {setValue} = useContext(MovieDetailContext);
+    const navigate = useNavigate();
 
     const showAddDeleteOptions = () => {
         setEditDelModelState(true);        
@@ -20,6 +22,7 @@ function MovieCard(props) {
 
     const selectMovie = (movieDetails) => {
         setValue(movieDetails);
+        navigate(`movie=${movieDetails.id}`)
     }
 
     const setcloseDeleteModal = (data) => {

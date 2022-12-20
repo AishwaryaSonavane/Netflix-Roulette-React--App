@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { connect, useSelector } from "react-redux";
+import { NavLink, useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import { getMovies, selectGenre } from "../../actions/moviesActions";
 import { getMoviesFromApi } from "../../api/api";
 import { getMoviesData, getSelectedGenre, getSelectedSortOption } from "../../reducers/rootReducer";
@@ -14,40 +15,58 @@ function MovieGenre(props) {
     const movies = useSelector(getMoviesData);
     const sortBy = useSelector(getSelectedSortOption);
     const selectedGenre = useSelector(getSelectedGenre);
+    const navigate = useNavigate();
+    const [searchParams, setSearchParams] = useSearchParams();
+    const genreParam = searchParams.get('genre');
+    let location = useLocation();
+    const getUrlPath = location.pathname + location.search;
 
-const onSelectGenre = (category) => {
-    getMoviesFromApi(category).then((movies) => {
-        props.getMovies(movies);
-    });
+    const onSelectGenre = (category) => {
+        getMoviesFromApi(category,'','genres').then((movies) => {
+            props.getMovies(movies);
+        });
+    }
 
-}
+    useEffect(() => {
+        getMoviesFromApi().then((movies) => {
+            props.getMovies(movies); 
+        });
+        navigate('?genre=All');
+    },[])
 
-useEffect(() => {
-    getMoviesFromApi().then((movies) => {
-        props.getMovies(movies); 
-    });
-},[])
+    useEffect(() => {
+        getMoviesFromApi(selectedGenre,sortBy).then((movies) => {
+            props.getMovies(movies); 
+        });
+    },[selectedGenre,sortBy])
 
-useEffect(() => {
-    getMoviesFromApi(selectedGenre,sortBy).then((movies) => {
-        props.getMovies(movies); 
-    });
-},[sortBy])
+    useEffect(() => {
+        onSelectGenre(genreParam)
+    },[genreParam])
 
     return (
         <>
             <div className="genre_sortBy__section">
                 <div className="genre">
-                    { 
-                        GENRES.map((category,index) => {
-                            return (
-                                <div onClick={() => onSelectGenre(category)} key={index}>
-                                { category }
-                                </div>
-                                );
-                            }
-                        ) 
-                    }
+                        <nav>
+                            <ul>
+                                { 
+                                    GENRES.map((category,index) => {
+                                        return (
+                                            <li key={index}>
+                                                <NavLink key={index} onClick={(category) => onSelectGenre(category)} 
+                                                to={`?genre=${category}`}
+                                                className={({ isActive }) => ((isActive && getUrlPath === `/search?genre=${category}`)? 'active' : 'inactive')}
+                                                end={true}>
+                                                    { category }
+                                                </NavLink>
+                                            </li>
+                                            );
+                                        }   
+                                    )
+                                }
+                        </ul>
+                    </nav> 
                 </div>
                 <MovieSort/>
             </div>
