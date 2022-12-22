@@ -52,7 +52,7 @@ function AddEditMovieModel(props) {
                 <>
                     { props.isOpen && (<div className="add-edit-model">
                     <button className="close"  onClick={closeModel}>X</button>
-                    <h2>{editMovieDetails ? 'EDIT MOVIE': 'ADD MOVIE'}</h2>     
+                    <h2>{editMovieDetails.title ? 'EDIT MOVIE': 'ADD MOVIE'}</h2>     
                     <form onSubmit={formik.handleSubmit} onReset={formik.handleReset} >
                         <div className="movie-detail--form">
                             <div className="detail__column-one">

@@ -22,6 +22,7 @@ function MovieGenre(props) {
     const getUrlPath = location.pathname + location.search;
 
     const onSelectGenre = (category) => {
+        props.selectGenre(category);
         getMoviesFromApi(category,'','genres').then((movies) => {
             props.getMovies(movies);
         });
