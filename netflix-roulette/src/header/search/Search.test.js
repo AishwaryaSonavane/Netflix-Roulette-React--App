@@ -14,6 +14,15 @@ const render = component => rtlRender(
     </Provider>
 )
 
+test('should render component', () => {
+    const { asFragment } =  render(
+        <BrowserRouter>
+             <SearchComponent/>
+        </BrowserRouter>
+     );
+   expect(asFragment()).toMatchSnapshot();  
+})
+
 test('should render search button', () => {
     render(
        <BrowserRouter>

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import DeleteMovieModal from '../../../common/add-edit-movie-model/delete-movie-modal/Delete-Movie-Modal';
+import DeleteMovieModal from '../../../common/delete-movie-modal/Delete-Movie-Modal';
 import { editMovie, openModal } from '../../../actions/moviesActions';
 import { MovieDetailContext } from '../../../App';
 import './Movie-card.css';

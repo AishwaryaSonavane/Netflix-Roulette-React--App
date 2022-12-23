@@ -1,13 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getMovies } from "../../../actions/moviesActions";
-import { deleteMovieFromApi, getMoviesFromApi } from "../../../api/api";
+import { deleteMovieFromApi, getMoviesFromApi } from "../../api/api";
+import { getMovies } from "../../actions/moviesActions";
 import './Delete-Movie-Modal.css';
 
 function DeleteMovieModal(props) {
 
     const deleteMovie = () => {
+        console.log("Hey1",props.movieId);
         deleteMovieFromApi(props.movieId).then(response => {
+            console.log("Hey",response);
             if (response.status === 204) {
                 props.closeDeleteModal(false);
 
