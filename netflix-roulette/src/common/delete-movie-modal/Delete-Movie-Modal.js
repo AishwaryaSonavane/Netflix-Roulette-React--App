@@ -7,9 +7,7 @@ import './Delete-Movie-Modal.css';
 function DeleteMovieModal(props) {
 
     const deleteMovie = () => {
-        console.log("Hey1",props.movieId);
         deleteMovieFromApi(props.movieId).then(response => {
-            console.log("Hey",response);
             if (response.status === 204) {
                 props.closeDeleteModal(false);
 

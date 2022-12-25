@@ -2,12 +2,10 @@
 import { BrowserRouter } from "react-router-dom";
 import { fireEvent, render as rtlRender, screen, waitFor } from "@testing-library/react"
 import { legacy_createStore as createStore} from 'redux';
-import { Provider } from "react-redux";
-import { getEditMovieDetails, rootReducer } from "../../reducers/rootReducer";
-import { useSelector } from "react-redux";
-
-import AddEditMovieModel from "./Add-Edit-Movie-Model";
+import { Provider, useSelector } from "react-redux";
 import userEvent from "@testing-library/user-event";
+import AddEditMovieModel from "./Add-Edit-Movie-Model";
+import { rootReducer } from "../../reducers/rootReducer";
 
 const store = createStore(rootReducer);
 
@@ -20,15 +18,6 @@ const mockAppState = {
     editMovieDetails: {
         title: "DUMMY_MOVIE"
     }
-}
-const mockFormValues = {
-    title: "Changed title",
-    poster_path: "https://image.tmdb.org/t/p/w500/ylXCdC106IKiarftHkcacasaAcb.jpg",
-    genres: "Comedy",
-    release_date: "2016-12-29",
-    vote_average: '7.9',
-    runtime: '128',
-    overview: "New movie overview"
 }
 
 jest.mock("react-redux", () => ({

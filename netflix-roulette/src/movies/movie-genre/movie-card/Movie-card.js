@@ -49,7 +49,7 @@ function MovieCard(props) {
                 <button className='edit-delete-options' onClick={showAddDeleteOptions}>i</button>
             <img className='image' src={poster_path} alt={title} onClick={() => selectMovie(props.movie)}/>
             <div className='detail'>
-                <span className='movie__title'>{title}</span>
+                <span data-testid="movie-title" className='movie__title'>{title}</span>
                 {release_date && <span className='movie__year'>{release_date.split('-')[0]}</span>}
             </div>
             <div className='movie__category'>
