@@ -52,41 +52,41 @@ function AddEditMovieModel(props) {
                 <>
                     { props.isOpen && (<div className="add-edit-model">
                     <button className="close"  onClick={closeModel}>X</button>
-                    <h2>{editMovieDetails ? 'EDIT MOVIE': 'ADD MOVIE'}</h2>     
-                    <form onSubmit={formik.handleSubmit} onReset={formik.handleReset} >
+                    <h2>{editMovieDetails.title ? 'EDIT MOVIE': 'ADD MOVIE'}</h2>     
+                    <form data-testid="form" onSubmit={formik.handleSubmit} onReset={formik.handleReset} >
                         <div className="movie-detail--form">
                             <div className="detail__column-one">
 
                             <label htmlFor="title">TITLE</label>
-                            <Field name="title" type="text" />
+                            <Field id="title" name="title" type="text" />
                             <ErrorMessage name="title" />
 
-                            <label htmlFor="title">MOVIE URL</label>
-                            <Field name="poster_path" type="url" />
+                            <label htmlFor="poster_path">MOVIE URL</label>
+                            <Field id="poster_path" name="poster_path" type="url" />
                             <ErrorMessage name="poster_path" />
 
-                            <label htmlFor="title">GENRE</label>
-                            <Field name="genres" />
+                            <label htmlFor="genres">GENRE</label>
+                            <Field id="genres" name="genres" />
                             <ErrorMessage name="genres" />
 
                             </div>
                             <div className="detail__column-two">
 
-                            <label htmlFor="title">RELEASED DATE</label>
-                            <Field name="release_date" type="date" />
+                            <label htmlFor="release_date">RELEASED DATE</label>
+                            <Field id="release_date" name="release_date" type="date" />
                             <ErrorMessage name="release_date" />
 
-                            <label htmlFor="title">RATING</label>
-                            <Field name="vote_average" type="number" />
+                            <label htmlFor="vote_average">RATING</label>
+                            <Field id="vote_average" name="vote_average" type="number" />
                             <ErrorMessage name="vote_average" />
 
-                            <label htmlFor="title">RUNTIME</label>
-                            <Field name="runtime" type="number" />
+                            <label htmlFor="runtime">RUNTIME</label>
+                            <Field id="runtime" name="runtime" type="number" />
                             <ErrorMessage name="runtime" />
                             </div>
                         </div>
                         <div className="overview">
-                            <label>OVERVIEW</label><br/>
+                            <label htmlFor="overview">OVERVIEW</label><br/>
                             <textarea rows="6" id="overview"
                                 name="overview"
                                 onChange={formik.handleChange}

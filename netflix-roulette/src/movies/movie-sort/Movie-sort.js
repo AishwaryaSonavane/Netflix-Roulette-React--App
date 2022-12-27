@@ -14,7 +14,7 @@ function MovieSort(props) {
     return(
         <div className="sort">
             <span>SORT BY</span>
-            <select className="options" onChange={e => sortMovies(e.target.value)}>
+            <select className="options" data-testid="select-option" onChange={e => sortMovies(e.target.value)}>
                 <option value='release_date'>RELEASE DATE</option>
                 <option value='vote_average'>RATING</option>
             </select>

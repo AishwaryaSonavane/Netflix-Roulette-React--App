@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getMovies } from "../../../actions/moviesActions";
-import { deleteMovieFromApi, getMoviesFromApi } from "../../../api/api";
+import { deleteMovieFromApi, getMoviesFromApi } from "../../api/api";
+import { getMovies } from "../../actions/moviesActions";
 import './Delete-Movie-Modal.css';
 
 function DeleteMovieModal(props) {

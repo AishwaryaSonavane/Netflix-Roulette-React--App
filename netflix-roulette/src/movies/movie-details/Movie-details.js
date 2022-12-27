@@ -11,7 +11,7 @@ function MovieDetails() {
                     <img className="movie-image" alt={title} src={poster_path}/>
                     <div className="details">
                     <div className="title-rating">
-                        <span className="title">{title}</span>
+                        <span data-testid="title" className="title">{title}</span>
                         <div className="rating"><span>{vote_average}</span></div>
                     </div>    
                    
