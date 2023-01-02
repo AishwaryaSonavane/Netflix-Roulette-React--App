@@ -14,7 +14,6 @@ function Header() {
             </div>
             <AddMovieComponent />
             <h1 className={styles.header__title}>FIND YOUR MOVIE</h1>
-           <Search />
         </>
     )
 }

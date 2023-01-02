@@ -1,9 +1,10 @@
+.details {
+    background: #232323;
+    width: 100%;
+}
 .movie_details {
     display: flex;
-    width: 100%;
-    background: #232323;
     color: #ffffff;
-    position: relative;
 }
 .movie_image {
     width: 20%;
@@ -31,7 +32,7 @@
     left: 9px;
     top: 10px;
 }
-.details {
+.movie_detail {
     margin: 50px 0;
     margin-right: 50px;
     width: 80%;

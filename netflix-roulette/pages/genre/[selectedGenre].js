@@ -2,14 +2,13 @@ import React from "react";
 import { getMoviesFromApi } from "../../api/api";
 import { wrapper } from "../../store";
 import { getMovies} from "../../reducers/rootReducer";
-import Header from "../../components/header/header";
+import Search from "../search";
 
 
 function SelectedMovieGenre() {
-
     return (
         <>
-            <Header/>
+            <Search/>
         </>         
         )
     }

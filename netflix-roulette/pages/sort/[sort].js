@@ -1,14 +1,14 @@
 import React from "react";
-import Header from "../../components/header/header";
 import { getMoviesFromApi } from "../../api/api";
 import { getMovies } from "../../reducers/rootReducer";
 import { wrapper } from "../../store";
 import Movies from "../movies/Movies";
+import Search from "../search";
 
 function SortBy() {
     return(
         <>
-            <Header/>
+            <Search/>
             <Movies/>
         </>
     )

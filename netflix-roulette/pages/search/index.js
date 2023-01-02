@@ -5,10 +5,7 @@ import Header from '../../components/header/header';
 import { getMoviesFromApi } from '../../api/api';
 import { getMovies } from '../../reducers/rootReducer';
 import { wrapper } from "../../store";
-import AddMovieComponent from "../../components/add-movie/Add-movie-component";
 import styles from '../../styles/Search.module.css'
-import headerStyles from '../../styles/Header.module.css';
-
 
 function Search(props) {
     const inputRef = useRef(null);
@@ -20,15 +17,12 @@ function Search(props) {
 
     return (
       <>
-        <div className={headerStyles.header}>
-        </div>
-            <AddMovieComponent />
-        <h1 className={headerStyles.header__title}>FIND YOUR MOVIE</h1>
+       <Header/>
         <div className={styles.search}>
             <input className={styles.input} ref={inputRef} placeholder='What do you want to watch?'></input>
             <button className={styles.button} onClick={onSearch}>SEARCH</button>
-       </div>
-      <Movies moviesData={props.moviesData}/>
+        </div>
+        <Movies moviesData={props.moviesData}/>
       </>  
       
     )
