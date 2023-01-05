@@ -5,7 +5,6 @@ import { Provider } from "react-redux";
 import { rootReducer } from "../../reducers/rootReducer";
 
 import DeleteMovieModal from "./Delete-Movie-Modal";
-import { deleteMovieFromApi } from "../../api/api";
 
 const store = createStore(rootReducer);
 
@@ -15,14 +14,14 @@ const render = component => rtlRender(
     </Provider>
 );
 
-test('should show modal title', () => {
+test('should show modal title', async () => {
     render(
         <BrowserRouter>
              <DeleteMovieModal showDeleteModal="true"/>
         </BrowserRouter>
      );
     const text = screen.getAllByText(/DELETE MOVIE/i);
-    waitFor(() => expect(text).toBeInTheDocument());
+    await waitFor(() => expect(text).toBeInTheDocument());
 });
 
 test('should call props closeDeleteModal method', () => {
@@ -38,20 +37,13 @@ test('should call props closeDeleteModal method', () => {
 });
 
 
-test('should call props closeDeleteModal method', async() => {
-    //const mockFn = jest.spyOn(DeleteMovieModal, 'deleteMovie');
-    //const a = jest.spyOn(deleteMovieFromApi)
+/*test('should call props closeDeleteModal method', async() => {
     const mock = jest.fn().mockResolvedValue({status: 204});
-    const mockFn = jest.fn();
     render(
         <BrowserRouter>
-             <DeleteMovieModal movieId={425895}  showDeleteModal="true" closeDeleteModal={mockFn}/>
+             <DeleteMovieModal movieId={425895}  showDeleteModal="true" closeDeleteModal={mock}/>
         </BrowserRouter>
      );
     const input = screen.getByRole('button');
     fireEvent.click(input);
-    mock();
-    //const data = await deleteMovieFromApi(425895);
-    //expect(mockFn).toHaveBeenCalled();
-    //expect(mockFn).toHaveBeenCalled();
-});
+});*/

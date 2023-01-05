@@ -20,14 +20,14 @@ jest.mock('react-router-dom', () => ({
     useNavigate: () => mockedUsedNavigate
 }));
 
-test('should render sort options', () => {
+test('should render sort options', async () => {
     render(
        <BrowserRouter>
             <MovieSort/>
        </BrowserRouter>
     );
     const sortOptionText = screen.getAllByText(/RELEASE DATE/i);
-    waitFor(() => expect(sortOptionText).toBeInTheDocument());
+    await waitFor(() => expect(sortOptionText).toBeInTheDocument());
 });
 
 test('should call sortMovies method and navigate to correct path', () => {     

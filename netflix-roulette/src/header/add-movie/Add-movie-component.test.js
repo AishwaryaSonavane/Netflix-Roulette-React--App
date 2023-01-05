@@ -13,17 +13,17 @@ const render = component => rtlRender(
     </Provider>
 )
 
-test('should render add movie button', () => {
+test('should render add movie button', async () => {
     render(
        <BrowserRouter>
             <AddMovieComponent/>
        </BrowserRouter>
     );
     const buttonText = screen.getAllByText(/Add Movie/i);
-    waitFor(() => expect(buttonText).toBeInTheDocument());
+    await waitFor(() => expect(buttonText).toBeInTheDocument());
 });
 
-test('should show add movie Model if add movie button is clicked', () => {
+test('should show add movie Model if add movie button is clicked', async () => {
     render(
        <BrowserRouter>
             <AddMovieComponent/>
@@ -31,5 +31,5 @@ test('should show add movie Model if add movie button is clicked', () => {
     );
     fireEvent.click(screen.getByRole('button'));
     const modalText = screen.getAllByText('ADD MOVIE');
-    waitFor(() => expect(modalText).toBeInTheDocument());
+    await waitFor(() => expect(modalText).toBeInTheDocument());
 });

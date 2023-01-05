@@ -5,12 +5,12 @@ import { mockMovieData as value } from "../../mock-data/mock-test-data";
 import MovieDetails from "./Movie-details";
 
 
-test('should display movie title', () => {
+test('should display movie title', async () => {
     render(
             <MovieDetailContext.Provider  value={{value}}>
                 <MovieDetails/>
             </MovieDetailContext.Provider>
     );
     const input = screen.getByTestId('title');
-    waitFor(() => expect(input).toHaveValue(value.title));
+    await waitFor(() => expect(input).toHaveValue(value.title));
 });

@@ -9,7 +9,6 @@ function SortBy() {
     return(
         <>
             <Search/>
-            <Movies/>
         </>
     )
 } 

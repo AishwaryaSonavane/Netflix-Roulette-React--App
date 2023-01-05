@@ -24,7 +24,7 @@ jest.mock("react", () => ({
     useState:  initial => [initial, mockSetState]
 }));
 
-test('should display movie title', () => {
+test('should display movie title', async () => {
     render(
        <BrowserRouter>
             <MovieDetailContext.Provider  value={{value,setValue}}>
@@ -33,7 +33,7 @@ test('should display movie title', () => {
        </BrowserRouter>
     );
     const test = screen.getByTestId('movie-title');
-    waitFor(() => expect(test).toHaveValue(value.title));
+    await waitFor(() => expect(test).toHaveValue(value.title));
 });
 
 
