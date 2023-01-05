@@ -31,14 +31,14 @@ beforeEach(() => {
     });
 });
 
-test('should show EDIT modal title', () => {
+test('should show EDIT modal title', async () => {
     render(
         <BrowserRouter>
                 <AddEditMovieModel isOpen="true"/>
         </BrowserRouter>
     );
     const text = screen.getAllByText(/EDIT MOVIE/i);
-    waitFor(() => expect(text).toBeInTheDocument());
+    await waitFor(() => expect(text).toBeInTheDocument());
     
 });
 

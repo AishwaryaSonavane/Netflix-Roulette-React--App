@@ -23,14 +23,14 @@ test('should render component', () => {
    expect(asFragment()).toMatchSnapshot();  
 })
 
-test('should render search button', () => {
+test('should render search button', async () => {
     render(
        <BrowserRouter>
             <SearchComponent/>
        </BrowserRouter>
     );
     const buttonText = screen.getAllByText(/SEARCH/i);
-    waitFor(() => expect(buttonText).toBeInTheDocument());
+    await waitFor(() => expect(buttonText).toBeInTheDocument());
 });
 
 test('should match search valu with browser path and action to be called', async () => {

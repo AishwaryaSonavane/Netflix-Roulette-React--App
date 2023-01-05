@@ -1,0 +1,50 @@
+.details {
+    background: #232323;
+    width: 100%;
+}
+.movie_details {
+    display: flex;
+    color: #ffffff;
+}
+.movie_image {
+    width: 20%;
+    margin: 50px;
+}
+.title_rating {
+    display: flex;
+}
+.title {
+    font-size: 40px;
+    text-transform: uppercase;
+}
+.rating {
+    height: 40px;
+    width: 40px;
+    border: 1px solid #FFFFFF;
+    border-radius: 30px;
+    text-align: center;
+    margin-left: 5%;
+    position: relative;
+    margin-top: 3px;
+}
+.rating span {
+    position: absolute;
+    left: 9px;
+    top: 10px;
+}
+.movie_detail {
+    margin: 50px 0;
+    margin-right: 50px;
+    width: 80%;
+}
+.year_duration {
+    display: flex;
+    color: #F65261;
+    margin-top: 15px;
+}
+.duration {
+    margin-left: 15px;
+}
+.description {
+    margin-top: 15px;
+}
