@@ -4,11 +4,20 @@
     margin: 0 10px;
     color: #FFFFFF;
     font-size: 14px;
-    align-self: center;
+    align-items: center;
 }
 .options {
     margin-left: 15px;
     background-color: transparent;
-    color: white;
+    color: #FFFFFF;
     border: none;
+    width: 165px;
+    font-size: 14px;
 }   
+.options ul {
+    background-color: black;
+    color: #FFFFFF;
+}
+.options svg {
+    color: #FFFFFF;
+}

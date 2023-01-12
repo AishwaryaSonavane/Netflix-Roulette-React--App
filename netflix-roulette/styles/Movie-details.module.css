@@ -9,6 +9,7 @@
 .movie_image {
     width: 20%;
     margin: 50px;
+    position: relative !important;
 }
 .title_rating {
     display: flex;
