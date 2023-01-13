@@ -5,7 +5,7 @@
 .genre_sortBy__section {
     display: flex;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 0 20px 25px;
 }
 
 .movie__section {
@@ -24,12 +24,11 @@
     margin-right: 15px;
 }
 
-.inactive {
-  text-decoration: none;
+.tabs button {
   color: #ffffff;
+  padding-bottom: 10px;
 }
 
-.active {
-    text-decoration: none;
+.tabs button .Mui-selected {
     color: red;
 }
